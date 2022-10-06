@@ -1,1 +1,1 @@
-console.log("Hi from container")
+import("./bootstrap")
