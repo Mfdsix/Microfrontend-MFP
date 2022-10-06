@@ -1,5 +1,6 @@
 import React from "react"
+import { mount } from "marketing/MarketingApp"
 
 export default () => {
-    return <h1>Hi from container</h1>
+    return mount(document.querySelector("#root"))
 }
