@@ -7,7 +7,11 @@ const mount = (el) => {
 }
 
 if(process.env.NODE_ENV === 'development'){
-    mount(document.querySelector("#dev-marketing"));
+    const el = document.querySelector("#dev-marketing")
+    
+    if(el){
+        mount(document.querySelector("#dev-marketing"));
+    }
 }
 
 export {
