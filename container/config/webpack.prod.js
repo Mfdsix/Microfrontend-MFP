@@ -5,7 +5,7 @@ const commonConfig = require("./webpack.common")
 const prodConfig = {
     mode: 'production',
     devServer: {
-        port: 8081,
+        port: 8080,
         historyApiFallback: {
             index: 'index.html'
         }
