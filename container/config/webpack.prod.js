@@ -9,7 +9,7 @@ const baseUrl = process.env.BASE_URL
 const config = {
     mode: 'production',
     output: {
-        filename: '[name].[contenthash]'
+        filename: '[name].[contenthash].js'
     },
     plugins: [
         new moduleFederationPlugin({
