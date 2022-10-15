@@ -20,7 +20,9 @@ const config = {
             },
             shared: packagesJson.dependencies
         }),
-        new htmlWebpackPlugin({}),
+        new htmlWebpackPlugin({
+            template: './public/index.html'
+        })
     ]
 }
 
