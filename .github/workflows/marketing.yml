@@ -2,7 +2,7 @@ name: deploy-marketing
 
 on:
   push:
-    branch:
+    branches:
       - main
     paths:
       - "marketing/**"
