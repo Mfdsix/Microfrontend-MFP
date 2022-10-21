@@ -23,7 +23,8 @@ const devConfig = {
             shared: packagesJson.dependencies
         }),
         new htmlWebpackPlugin({
-            template: './public/index.html'
+            template: './public/index.html',
+            publicPath: '/'
         })
     ]
 }
