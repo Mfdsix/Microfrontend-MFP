@@ -10,6 +10,7 @@ import {
 
 import MarketingApp from "./components/MarketingApp"
 import Header from "./components/Header"
+import AuthApp from "./components/AuthApp"
 
 const generateClassName = createGenerateClassName({
     productionPrefix: 'ctnr-1'
@@ -21,6 +22,7 @@ export default () => {
     <div>
     <Header/>
     <MarketingApp/>
+    <AuthApp/>
     </div>
     </BrowserRouter>
     </StylesProvider>
