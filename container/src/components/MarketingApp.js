@@ -11,10 +11,17 @@ export default () => {
     const history = useHistory()
 
     useEffect(() => {
-        mount(ref.current, {
+        const { navigateTo } = mount(ref.current, {
             onNavigate: (pathname) => {
-                history.push(pathname)
+                if(history.location?.pathname !== pathname)
+                {
+                    history.push(pathname)
+                }
             }
+        })
+
+        history.listen(({ pathname }) => {
+            navigateTo(pathname)
         })
     })
 

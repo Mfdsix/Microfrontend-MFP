@@ -7,13 +7,22 @@ import {
 
 const mount = (el, {
     onNavigate
-}) => {
+} = {}) => {
     const history = createMemoryHistory()
-    history.listen(({
-        pathname
-    }) => onNavigate(pathname))
+
+    if(onNavigate){
+        history.listen(({
+            pathname
+        }) => onNavigate(pathname))
+    }
 
     ReactDOM.render(<App history={history}/>, el)
+
+    return {
+        navigateTo: (pathname) => {
+            history.push(pathname)
+        }
+    }
 }
 
 if(process.env.NODE_ENV === 'development'){
