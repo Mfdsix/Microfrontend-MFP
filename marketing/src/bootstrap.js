@@ -20,7 +20,9 @@ const mount = (el, {
 
     return {
         navigateTo: (pathname) => {
-            history.push(pathname)
+            if(history.location.pathname !== pathname){
+                history.push(pathname)
+            }
         }
     }
 }
