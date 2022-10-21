@@ -2,13 +2,14 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
 import {
-    createMemoryHistory
+    createMemoryHistory,
+    createBrowserHistory
 } from 'history'
 
 const mount = (el, {
     onNavigate
 } = {}) => {
-    const history = createMemoryHistory()
+    const history = onNavigate ? createMemoryHistory() : createBrowserHistory()
 
     if(onNavigate){
         history.listen(({
@@ -18,10 +19,12 @@ const mount = (el, {
 
     ReactDOM.render(<App history={history}/>, el)
 
-    return {
-        navigateTo: (pathname) => {
-            if(history.location.pathname !== pathname){
-                history.push(pathname)
+    if(onNavigate){
+        return {
+            navigateTo: (pathname) => {
+                if(history.location.pathname !== pathname){
+                    history.push(pathname)
+                }
             }
         }
     }
