@@ -7,7 +7,7 @@ const config = {
     mode: 'production',
     output: {
         filename: '[name].[contenthash].js',
-        publicPath: '/auth/latest/'
+        publicPath: '/auth/latest/',
     },
     plugins: [
         new moduleFederationPlugin({

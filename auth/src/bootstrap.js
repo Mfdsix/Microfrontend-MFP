@@ -7,9 +7,12 @@ import {
 } from 'history'
 
 const mount = (el, {
-    onNavigate
+    onNavigate,
+    initialPath = '/auth/signin'
 } = {}) => {
-    const history = onNavigate ? createMemoryHistory() : createBrowserHistory()
+    const history = onNavigate ? createMemoryHistory({
+        initialEntries: [initialPath]
+    }) : createBrowserHistory()
 
     if(onNavigate){
         history.listen(({

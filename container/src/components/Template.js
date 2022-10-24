@@ -4,6 +4,7 @@ import React, {
 import {
     useHistory
 } from 'react-router-dom'
+import Header from './Header'
 
 export default ({
     mount
@@ -13,6 +14,7 @@ export default ({
 
     useEffect(() => {
         const { navigateTo } = mount(ref.current, {
+            initialPath: history?.location?.pathname,
             onNavigate: (pathname) => {
                 if(history.location?.pathname !== pathname)
                 {
@@ -26,5 +28,8 @@ export default ({
         })
     })
 
-    return <div ref={ref}/>
+    return <div>
+        <Header/>
+        <div ref={ref}/>
+        </div>
 }

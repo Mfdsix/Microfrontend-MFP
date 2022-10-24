@@ -1,15 +1,15 @@
 import React from "react"
 
 import {
-    BrowserRouter
+    BrowserRouter, Route, Switch
 } from 'react-router-dom'
 import {
     StylesProvider,
     createGenerateClassName
 } from '@material-ui/core/styles'
 
-import MarketingApp from "./components/MarketingApp"
 import Header from "./components/Header"
+import MarketingApp from "./components/MarketingApp"
 import AuthApp from "./components/AuthApp"
 
 const generateClassName = createGenerateClassName({
@@ -19,11 +19,10 @@ const generateClassName = createGenerateClassName({
 export default () => {
     return <StylesProvider generateClassName={generateClassName}>
     <BrowserRouter>
-    <div>
-    <Header/>
-    <MarketingApp/>
-    <AuthApp/>
-    </div>
+    <Switch>
+        <Route path="/auth" component={AuthApp}/>
+        <Route path="/" component={MarketingApp}/>
+    </Switch>
     </BrowserRouter>
     </StylesProvider>
 }
