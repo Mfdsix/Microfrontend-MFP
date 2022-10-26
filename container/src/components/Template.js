@@ -6,9 +6,8 @@ import {
 } from 'react-router-dom'
 import Header from './Header'
 
-export default ({
-    mount
-}) => {
+export default (props) => {
+    const { mount, ...otherProps } = props
     const ref = useRef(null)
     const history = useHistory()
 
@@ -20,7 +19,8 @@ export default ({
                 {
                     history.push(pathname)
                 }
-            }
+            },
+            ...otherProps
         })
 
         history.listen(({ pathname }) => {

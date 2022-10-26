@@ -8,7 +8,8 @@ import {
 
 const mount = (el, {
     onNavigate,
-    initialPath = '/auth/signin'
+    initialPath = '/auth/signin',
+    onSignIn = () => {}
 } = {}) => {
     const history = onNavigate ? createMemoryHistory({
         initialEntries: [initialPath]
@@ -20,7 +21,7 @@ const mount = (el, {
         }) => onNavigate(pathname))
     }
 
-    ReactDOM.render(<App history={history}/>, el)
+    ReactDOM.render(<App history={history} onSignIn={onSignIn}/>, el)
 
     if(onNavigate){
         return {
