@@ -1,5 +1,5 @@
 import React, {
-    lazy, Suspense
+    lazy, Suspense, useState
 } from "react"
 
 import {
@@ -20,12 +20,22 @@ const generateClassName = createGenerateClassName({
 })
 
 export default () => {
+
+    const [isSignIn, setIsSignIn] = useState(false)
+
     return <StylesProvider generateClassName={generateClassName}>
     <BrowserRouter>
     <Suspense fallback={<Loading/>}>
         <Switch>
-            <Route path="/auth" component={LazyAuth}/>
-            <Route path="/" component={LazyMarketing}/>
+            <Route path="/auth">
+                <LazyAuth onSignIn={() => {
+                    console.log("on sign in triiered")
+                    setIsSignIn(true)
+                }} isSignIn={isSignIn}/>
+            </Route>
+            <Route path="/">
+                <LazyMarketing isSignIn={isSignIn}/>
+            </Route>
         </Switch>
     </Suspense>
     </BrowserRouter>
