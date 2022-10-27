@@ -3,8 +3,8 @@ import { mount } from 'marketing/MarketingApp'
 import Template from '../templates/React'
 
 export default function MarketingApp({
-    isSignedIn,
+    isSignIn,
     onSignOut
 }) {
-    return <Template mount={mount} isSignedIn={isSignedIn} onSignOut={onSignOut}/>
+    return <Template mount={mount} isSignIn={isSignIn} onSignOut={onSignOut}/>
 }

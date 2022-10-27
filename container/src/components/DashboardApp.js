@@ -3,7 +3,8 @@ import { mount } from 'dashboard/DashboardApp'
 import Template from '../templates/Vue'
 
 export default function DashboardApp({
-    isSignIn
+    isSignIn,
+    onSignOut
 }) {
-    return <Template mount={mount} isSignIn={isSignIn}/>
+    return <Template mount={mount} isSignIn={isSignIn} onSignOut={onSignOut}/>
 }

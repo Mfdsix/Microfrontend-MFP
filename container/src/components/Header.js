@@ -57,12 +57,6 @@ const useStyles = makeStyles((theme) => ({
 export default function Header({ signedIn, onSignOut }) {
   const classes = useStyles();
 
-  const onClick = () => {
-    if (signedIn && onSignOut) {
-      onSignOut();
-    }
-  };
-
   return (
     <React.Fragment>
       <AppBar
@@ -85,9 +79,7 @@ export default function Header({ signedIn, onSignOut }) {
             color="primary"
             variant="outlined"
             className={classes.link}
-            component={RouterLink}
-            to={signedIn ? '/' : '/auth/login'}
-            onClick={onClick}
+            onClick={onSignOut}
           >
             {signedIn ? 'Logout' : 'Login'}
           </Button>
