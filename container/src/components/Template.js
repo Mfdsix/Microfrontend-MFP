@@ -1,5 +1,5 @@
 import React, {
-    useRef, useEffect, useState
+    useRef, useEffect
 } from 'react'
 import {
     useHistory
@@ -7,7 +7,7 @@ import {
 import Header from './Header'
 
 export default (props) => {
-    const { mount, isSignIn = false, ...otherProps } = props
+    const { mount, onSignOut, isSignIn = false, ...otherProps } = props
     const ref = useRef(null)
     const history = useHistory()
 
@@ -29,7 +29,7 @@ export default (props) => {
     })
 
     return <div>
-        <Header signedIn={isSignIn}/>
+        <Header signedIn={isSignIn} onSignOut={onSignOut}/>
         <div ref={ref}/>
     </div>
 }

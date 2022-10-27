@@ -4,7 +4,8 @@ import Template from './Template'
 
 export default function AuthApp({
     onSignIn,
-    isSignIn
+    isSignIn,
+    onSignOut
 }) {
-    return <Template mount={mount} onSignIn={onSignIn} isSignIn={isSignIn}/>
+    return <Template mount={mount} onSignIn={onSignIn} isSignIn={isSignIn} onSignOut={onSignOut}/>
 }

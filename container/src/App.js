@@ -19,22 +19,30 @@ const generateClassName = createGenerateClassName({
     productionPrefix: 'ctnr-1'
 })
 
-export default () => {
 
+export default () => {
+    
     const [isSignIn, setIsSignIn] = useState(false)
+    
+    const onSignIn = () => {
+        setIsSignIn(true)
+    }
+    
+    const onSignOut = () => {
+        setIsSignIn(false);
+    }
 
     return <StylesProvider generateClassName={generateClassName}>
     <BrowserRouter>
     <Suspense fallback={<Loading/>}>
         <Switch>
             <Route path="/auth">
-                <LazyAuth onSignIn={() => {
-                    console.log("on sign in triiered")
-                    setIsSignIn(true)
-                }} isSignIn={isSignIn}/>
+                <LazyAuth onSignIn={onSignIn} isSignIn={isSignIn}
+                onSignOut={onSignOut}/>
             </Route>
             <Route path="/">
-                <LazyMarketing isSignIn={isSignIn}/>
+                <LazyMarketing isSignIn={isSignIn}
+                onSignOut={onSignOut}/>
             </Route>
         </Switch>
     </Suspense>
