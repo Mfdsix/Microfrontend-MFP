@@ -4,7 +4,7 @@ import React, {
 import {
     useHistory
 } from 'react-router-dom'
-import Header from './Header'
+import Header from '../components/Header'
 
 export default (props) => {
     const { mount, onSignOut, isSignIn = false, ...otherProps } = props

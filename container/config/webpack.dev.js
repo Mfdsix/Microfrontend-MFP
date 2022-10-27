@@ -19,6 +19,7 @@ const config = {
             remotes: {
                 marketing: 'marketing@http://localhost:8081/remoteEntry',
                 auth: 'auth@http://localhost:8082/remoteEntry',
+                dashboard: 'dashboard@http://localhost:8083/remoteEntry'
             },
             shared: packagesJson.dependencies
         }),

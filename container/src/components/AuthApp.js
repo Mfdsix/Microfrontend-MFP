@@ -1,6 +1,6 @@
 import React from 'react'
 import { mount } from 'auth/AuthApp'
-import Template from './Template'
+import Template from '../templates/React'
 
 export default function AuthApp({
     onSignIn,

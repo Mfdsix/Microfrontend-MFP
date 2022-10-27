@@ -14,6 +14,7 @@ import Loading from "./components/Loading"
 
 const LazyMarketing = lazy(() => import('./components/MarketingApp'))
 const LazyAuth = lazy(() => import('./components/AuthApp'))
+const LazyDashboard = lazy(() => import('./components/DashboardApp'))
 
 const generateClassName = createGenerateClassName({
     productionPrefix: 'ctnr-1'
@@ -40,9 +41,11 @@ export default () => {
                 <LazyAuth onSignIn={onSignIn} isSignIn={isSignIn}
                 onSignOut={onSignOut}/>
             </Route>
+            <Route path="/dashboard">
+                <LazyDashboard isSignIn={isSignIn} onSignOut={onSignOut}/>
+            </Route>
             <Route path="/">
-                <LazyMarketing isSignIn={isSignIn}
-                onSignOut={onSignOut}/>
+                <LazyMarketing isSignIn={isSignIn} onSignOut={onSignOut}/>
             </Route>
         </Switch>
     </Suspense>

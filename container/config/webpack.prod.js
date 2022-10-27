@@ -18,6 +18,7 @@ const config = {
             remotes: {
                 auth: `auth@${baseUrl}/auth/latest/remoteEntry.js`,
                 marketing: `marketing@${baseUrl}/marketing/latest/remoteEntry.js`,
+                dashboard: `dashboard@${baseUrl}/dashboard/latest/remoteEntry.js`,
             },
             shared: packagesJson.dependencies
         }),

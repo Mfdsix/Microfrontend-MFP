@@ -1,36 +1,9 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import App from './App'
-import {
-    createMemoryHistory,
-    createBrowserHistory
-} from 'history'
+import { createApp } from 'vue'
+import Dashboard from './components/Dashboard.vue'
 
-const mount = (el, {
-    onNavigate,
-    initialPath = '/dashboard',
-} = {}) => {
-    const history = onNavigate ? createMemoryHistory({
-        initialEntries: [initialPath]
-    }) : createBrowserHistory()
-
-    if(onNavigate){
-        history.listen(({
-            pathname
-        }) => onNavigate(pathname))
-    }
-
-    ReactDOM.render(<App history={history}/>, el)
-
-    if(onNavigate){
-        return {
-            navigateTo: (pathname) => {
-                if(history.location.pathname !== pathname){
-                    history.push(pathname)
-                }
-            }
-        }
-    }
+const mount = (el) => {
+    const app = createApp(Dashboard)
+    app.mount(el)
 }
 
 if(process.env.NODE_ENV === 'development'){

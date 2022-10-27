@@ -1,6 +1,6 @@
 import React from 'react'
 import { mount } from 'marketing/MarketingApp'
-import Template from './Template'
+import Template from '../templates/React'
 
 export default function MarketingApp({
     isSignedIn,
